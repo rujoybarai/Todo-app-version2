@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { IoMdAddCircle } from "react-icons/io";
 
 export default function Todoheading({onAdtodo}) {
       let [showItem, setShowItem] = useState();
@@ -24,7 +25,7 @@ export default function Todoheading({onAdtodo}) {
       <div>
         <input type="date" value={itemDate} className='form-control' onChange={(e) => setItemDate(e.target.value)} />
       </div>
-      <button className='btn btn-primary' onClick={handleAddItem}>Add</button>
+      <button className='btn btn-primary' onClick={handleAddItem}><IoMdAddCircle /></button>
     </div>
   )
 }
