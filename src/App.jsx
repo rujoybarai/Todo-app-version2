@@ -8,26 +8,38 @@ import { useState } from 'react';
 function App() {
    
   
-    let [todoList, setTodoList] = useState([]);
+    const [todoList, setTodoList] = useState([]);
+   const [editItem,setEditItem]= useState(null);
 
 
-  let onAdtodo= (showItem, itemDate) => {
+const onAdtodo= (showItem, itemDate) => {
     let newItem = { showItem,  itemDate, };
     setTodoList([...todoList, newItem]);
 
     }
 
-    let onDeleteItem = (deleteitem) => {
+   const onDeleteItem = (deleteitem) => {
       let updatedList = todoList.filter((item, index) => index !== deleteitem);
       setTodoList(updatedList);
+    }
+
+    const onEditItem = (index) => {
+      setEditItem(index);
+    }
+   
+    const saveItem = (showItem, itemDate) => {
+      let savedList =[...todoList];
+      savedList[editItem] = { showItem, itemDate };
+      setTodoList (savedList);
+      setEditItem(null);
     }
 
 
   return (
     <div className='TodoApp container mt-5 border p-4 bg-light h-100 w-50'>
       <Heading />
-      <Todoheading onAdtodo={onAdtodo} />
-      <Todoitem todoList={todoList} onDeleteItem={onDeleteItem} />
+      <Todoheading onAdtodo={onAdtodo} editItem={editItem} saveItem={saveItem} todoList={todoList} />
+      <Todoitem todoList={todoList} onDeleteItem={onDeleteItem} onEditItem={onEditItem} />
     </div>
   )
 }

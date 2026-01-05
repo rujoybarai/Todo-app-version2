@@ -1,8 +1,9 @@
 import React from 'react'
 import { MdDelete } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
 
 
-export default function Todoitem({todoList,onDeleteItem}) {
+export default function Todoitem({todoList,onDeleteItem,onEditItem}) {
   
   
 
@@ -16,6 +17,7 @@ export default function Todoitem({todoList,onDeleteItem}) {
            <span className='fs-6 pl-5 flex-grow-1 ' >{item.showItem}</span>
             <span className='fs-6 pl-5 flex-grow-1' >{item.itemDate}</span>
            <button className='btn btn-danger' onClick={() => onDeleteItem(index)}><MdDelete /></button>
+           <button className='btn btn-danger' onClick={() => onEditItem(index)}><FaRegEdit /></button>
         </li>
         
         
