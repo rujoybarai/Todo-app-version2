@@ -11,7 +11,7 @@ export default function Todoheading() {
     const todoList= TodosObject.todoList;
     const onAdtodo= TodosObject.addTodo;
     const saveItem= TodosObject.saveTodo;
-    const editItem= TodosObject.editTodo;
+   
     const editIndex= TodosObject.editIndex;
 
 
@@ -30,7 +30,7 @@ export default function Todoheading() {
 
 
     let handleAddItem = () => {
-        if(!showItem || !itemDate){
+        if(!showItem || !itemDate ){
            
             return;
         }
