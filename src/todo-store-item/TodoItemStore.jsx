@@ -20,7 +20,7 @@ let newTodos=currValue;
   }
   return newTodos;
 };
-const StoreDetails=JSON.parse(localStorage.getItem("Store"));
+const StoreDetails=JSON.parse(localStorage.getItem("Store")) || [];
 
 const AppAllTodoStore =({children})=>{
 
