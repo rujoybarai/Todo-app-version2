@@ -1,4 +1,4 @@
-import { Children, createContext } from "react";
+import { Children, createContext, useEffect } from "react";
 import { useState ,useReducer} from 'react';
 import React from 'react';
 
@@ -20,12 +20,13 @@ let newTodos=currValue;
   }
   return newTodos;
 };
+const StoreDetails=JSON.parse(localStorage.getItem("Store"));
 
 const AppAllTodoStore =({children})=>{
 
 
     // const [todoList, setTodoList] = useState([]);
-    const [todoList,dispatchTodoList]= useReducer(reducer,[]);
+    const [todoList,dispatchTodoList]= useReducer(reducer,StoreDetails);
    const [editItem,setEditItem]= useState(null);
 
 // Adding item to todo list:
@@ -36,6 +37,9 @@ const AppAllTodoStore =({children})=>{
 
 //     }
 
+useEffect(()=>{
+  localStorage.setItem("Store",JSON.stringify(todoList))
+},[todoList])
 
 // Add item todo list essay method:
 const onAdtodo= (showItem, itemDate) => {

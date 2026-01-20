@@ -48,7 +48,7 @@ export default function Todoheading() {
        
     }
   return (
-    <div className='d-flex gap-3'>
+    <div className='d-flex gap-3'id="heading">
       <input type="text" value={showItem} className='form-control' onChange={(e) => setShowItem(e.target.value)}/> 
       <div>
         <input type="date" value={itemDate} className='form-control' onChange={(e) => setItemDate(e.target.value)} />

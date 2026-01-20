@@ -1,0 +1,15 @@
+
+
+
+
+@media (max-width:480px){
+
+    #heading{
+        display: flex;
+        flex-direction: column;
+    }
+    #TodoItem{
+        display: flex;
+        flex-direction: column;
+    }
+}
